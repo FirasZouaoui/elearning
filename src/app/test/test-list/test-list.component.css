@@ -1,0 +1,170 @@
+/* 🔹 Container Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9fafb;
+}
+
+/* 🔹 Header Flex Row */
+.container .flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* 🔹 Add Button */
+button[routerLink] {
+  background: linear-gradient(to right, #3b82f6, #2563eb);
+  padding: 12px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+  transition: all 0.3s ease;
+}
+
+button[routerLink]:hover {
+  transform: translateY(-1px);
+  background: #1d4ed8;
+}
+
+/* 🔹 Search & Select */
+.search-input,
+.formation-select {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-bottom: 16px;
+  background-color: #ffffff;
+  transition: 0.3s ease;
+}
+
+.search-input:focus,
+.formation-select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  outline: none;
+}
+
+/* 🔹 Message */
+.text-red-500 {
+  color: #dc2626;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* 🔹 Table Container */
+.overflow-x-auto {
+  overflow-x: auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+}
+
+/* 🔹 Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+thead {
+  background-color: #f3f4f6;
+}
+
+th {
+  text-align: left;
+  padding: 16px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #374151;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+td {
+  padding: 16px;
+  font-size: 0.95rem;
+  color: #4b5563;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: middle;
+}
+
+/* 🔹 Table Hover Row */
+tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+/* 🔹 Action Buttons */
+td button {
+  padding: 8px 12px;
+  margin-right: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+td button:hover {
+  transform: translateY(-1px);
+}
+
+/* ✅ Specific Button Styles */
+.bg-yellow-500 {
+  background-color: #f59e0b;
+}
+.bg-yellow-500:hover {
+  background-color: #d97706;
+}
+
+.bg-red-500 {
+  background-color: #ef4444;
+}
+.bg-red-500:hover {
+  background-color: #b91c1c;
+}
+
+.bg-green-500 {
+  background-color: #10b981;
+}
+.bg-green-500:hover {
+  background-color: #059669;
+}
+
+/* 🔹 Mobile Adjustments */
+@media (max-width: 768px) {
+  th, td {
+    padding: 12px;
+  }
+
+  .container {
+    padding: 32px 16px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  button[routerLink] {
+    width: 100%;
+    text-align: center;
+  }
+}

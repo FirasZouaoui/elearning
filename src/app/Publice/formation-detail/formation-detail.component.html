@@ -1,0 +1,89 @@
+<div class="container py-4">
+  <!-- Affichage du chargement -->
+  <div *ngIf="loading" class="text-center">
+    Chargement des données...
+  </div>
+
+  <!-- Contenu principal -->
+  <div *ngIf="!loading && formation" class="max-w-7xl mx-auto">
+    <!-- En-tête avec l'image et le nom de la formation -->
+    <div class="text-center mb-8">
+      <img
+        [src]="formation.imageUrl"
+        [alt]="formation.nom"
+        class="mx-auto mb-4 rounded-lg"
+        style="max-width: 200px; height: auto;"
+      />
+      <h1 class="text-3xl font-bold mb-4 text-purple-600">{{ formation.nom }}</h1>
+    </div>
+
+    <!-- Affichage des erreurs -->
+    <div *ngIf="error" class="alert alert-danger">
+      {{ error }}
+    </div>
+
+    <!-- Grille pour cours et tests -->
+    <div class="row">
+      <!-- Section Cours -->
+      <div class="col-md-6 mb-4">
+        <div class="card shadow-sm bg-gray-100 p-4 rounded-md">
+          <div class="card-header bg-light">
+            <h2 class="text-2xl font-semibold mb-4">Cours</h2>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li
+              *ngFor="let cours of coursList"
+              class="list-group-item d-flex justify-content-between align-items-center bg-white shadow-lg p-4 rounded-md mb-4"
+            >
+              <div>
+                <h3 class="font-medium text-lg text-blue-700">{{ cours.titre }}</h3>
+                <!-- Removed redundant <p>{{ cours.titre }}</p> -->
+              </div>
+              <button
+                class="btn btn-sm btn-primary"
+                (click)="goToCours(cours.idCours)"
+              >
+                Voir cours
+              </button>
+            </li>
+            <li *ngIf="coursList.length === 0" class="list-group-item">
+              Aucun cours disponible.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Section Tests -->
+      <div class="col-md-6 mb-4">
+        <div class="card shadow-sm bg-gray-100 p-4 rounded-md">
+          <div class="card-header bg-light">
+            <h2 class="text-2xl font-semibold mb-4">Tests</h2>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li
+              *ngFor="let test of testList"
+              class="list-group-item d-flex justify-content-between align-items-center bg-white shadow-lg p-4 rounded-md mb-4"
+            >
+              <div>
+                <h3 class="font-medium text-lg text-green-700">{{ test.nom }}</h3>
+                <!-- Removed redundant <p>{{ test.nom }}</p> -->
+              </div>
+              <button
+                class="btn btn-sm"
+                [ngClass]="hasCompletedTest(test.idTest) ? 'btn-secondary' : 'btn-success'"
+                [disabled]="hasCompletedTest(test.idTest)"
+                (click)="passTest(test.idTest)"
+                [title]="hasCompletedTest(test.idTest) ? 'Vous avez déjà obtenu un certificat pour ce test' : 'Passer le test'"
+              >
+                {{ hasCompletedTest(test.idTest) ? 'Vous avez déjà pris ce test' : 'Passer le test' }}
+              </button>
+            </li>
+            <li *ngIf="testList.length === 0" class="list-group-item">
+              Aucun test disponible.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold mb-6">Ajouter un Test</h1>
+  
+    <form (ngSubmit)="handleSubmit()" #testForm="ngForm">
+      <!-- Nom du test -->
+      <div class="mb-4">
+        <label class="block text-gray-700 mb-2">Nom du test</label>
+        <input
+          type="text"
+          name="nom"
+          [(ngModel)]="test.nom"
+          required
+          class="form-input"
+        />
+      </div>
+  
+      <!-- Formation associée -->
+      <div class="mb-4">
+        <label class="block text-gray-700 mb-2">Formation</label>
+        <select
+          name="formationId"
+          [(ngModel)]="test.formationId"
+          required
+          class="form-select"
+        >
+          <option value="" disabled selected>Choisir une formation</option>
+          <option *ngFor="let formation of formations" [value]="formation.idFormation">
+            {{ formation.nom }}
+          </option>
+        </select>
+      </div>
+  
+      <div *ngIf="error" class="text-red-500 mb-4">{{ error }}</div>
+  
+      <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Enregistrer
+      </button>
+    </form>
+  </div>
+  

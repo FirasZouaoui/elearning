@@ -1,0 +1,74 @@
+<div class="container py-4">
+    <!-- Affichage du chargement -->
+    <div *ngIf="loading" class="text-center">
+      Chargement des questions...
+    </div>
+  
+    <!-- Message d'erreur ou absence de questions -->
+    <div *ngIf="!loading && resultMessage && !testStarted && !testCompleted" class="text-center text-red-600">
+      {{ resultMessage }}
+    </div>
+  
+    <!-- En-tête du test -->
+    <div *ngIf="!loading && !testStarted && questions.length > 0" class="text-center">
+      <h2 class="text-2xl font-bold mb-4">{{ test?.nom }}</h2>
+      <button
+        (click)="startTest()"
+        class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+      >
+        Commencer le test
+      </button>
+    </div>
+  
+    <!-- Questions et réponses -->
+    <div *ngIf="testStarted && !testCompleted && questions.length > 0" class="question-card bg-white shadow-lg p-6 rounded-md">
+      <h3 class="text-xl font-semibold mb-4">{{ questions[currentQuestionIndex]?.texte }}</h3>
+      <div *ngIf="reponses.length > 0; else loadingReponses">
+        <div *ngFor="let reponse of reponses" class="answer-card mb-2">
+          <label class="flex items-center">
+            <input
+              type="radio"
+              [name]="'question-' + questions[currentQuestionIndex].idQuestion"
+              [value]="reponse.idReponse"
+              (change)="handleAnswerChange(questions[currentQuestionIndex].idQuestion, reponse.idReponse, reponse.estCorrecte === 1)"
+              [checked]="isAnswerSelected(questions[currentQuestionIndex].idQuestion, reponse.idReponse)"
+            />
+            <span class="ml-2">{{ reponse.texte }}</span>
+          </label>
+        </div>
+      </div>
+      <ng-template #loadingReponses>
+        <div>Chargement des réponses...</div>
+      </ng-template>
+  
+      <!-- Boutons de navigation -->
+      <div class="flex justify-between mt-6">
+        <button
+          *ngIf="currentQuestionIndex > 0"
+          (click)="handlePreviousQuestion()"
+          class="bg-gray-200 text-black px-4 py-2 rounded-md hover:bg-gray-300"
+        >
+          Précédent
+        </button>
+        <button
+          *ngIf="currentQuestionIndex < questions.length - 1"
+          (click)="handleNextQuestion()"
+          class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+        >
+          Suivant
+        </button>
+        <button
+          *ngIf="currentQuestionIndex === questions.length - 1"
+          (click)="handleFinishTest()"
+          class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
+        >
+          Terminer le test
+        </button>
+      </div>
+    </div>
+  
+    <!-- Message de résultat -->
+    <div *ngIf="testCompleted" class="text-center text-xl font-semibold text-green-600">
+      {{ resultMessage }}
+    </div>
+  </div>

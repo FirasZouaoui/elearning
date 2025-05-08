@@ -1,0 +1,31 @@
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-6">Add New Question</h1>
+    <div *ngIf="error" class="text-red-500 mb-4">{{ error }}</div>
+  
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="max-w-md">
+      <div class="mb-4">
+        <label for="texte" class="block text-gray-700 font-bold mb-2">Question Text</label>
+        <textarea id="texte" formControlName="texte" class="w-full px-3 py-2 border rounded-lg"></textarea>
+      </div>
+  
+      <div class="mb-4">
+        <label for="nbReponseVrai" class="block text-gray-700 font-bold mb-2">Number of Correct Answers</label>
+        <input type="number" id="nbReponseVrai" formControlName="nbReponseVrai" class="w-full px-3 py-2 border rounded-lg" />
+      </div>
+  
+      <div class="mb-4">
+        <label for="note" class="block text-gray-700 font-bold mb-2">Note</label>
+        <input type="number" id="note" formControlName="note" class="w-full px-3 py-2 border rounded-lg" />
+      </div>
+  
+      <div class="mb-4">
+        <label for="temps" class="block text-gray-700 font-bold mb-2">Time (minutes)</label>
+        <input type="number" id="temps" formControlName="temps" class="w-full px-3 py-2 border rounded-lg" />
+      </div>
+  
+      <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Add Question
+      </button>
+    </form>
+  </div>
+  

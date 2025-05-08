@@ -1,0 +1,106 @@
+.formation-display {
+  padding: 40px;
+  background-color: #f9fafb;
+  text-align: center;
+}
+
+.formation-display h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 30px;
+}
+
+/* Error / No Result */
+.error-message,
+.no-result {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* GRID 3 FORMATIONS CENTRÉES */
+.formation-display-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  justify-content: center;
+  align-items: stretch;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+/* Card Design */
+.formation-item {
+  display: flex;
+  justify-content: center;
+}
+
+.formation-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 280px;
+  cursor: pointer;
+}
+
+.formation-card:hover {
+  transform: translateY(-5px);
+}
+
+.formation-image {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.formation-info {
+  padding: 16px;
+  text-align: left;
+}
+
+.formation-info h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.formation-info p {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.4;
+  max-height: 48px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Pagination */
+.pagination-controls {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-weight: 500;
+}
+
+.pagination-controls button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #3b82f6;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination-controls button:disabled {
+  background-color: #cbd5e1;
+  cursor: not-allowed;
+}

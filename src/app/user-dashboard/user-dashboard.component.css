@@ -1,0 +1,92 @@
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 2rem;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  /* Table Wrapper */
+  .bg-white {
+    background-color: #ffffff;
+  }
+  
+  .shadow-md {
+    box-shadow: 0 0 0 1px #e5e7eb, 0 6px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .rounded-lg {
+    border-radius: 12px;
+    overflow-x: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+  
+  /* Table Header */
+  thead {
+    background-color: #f9fafb;
+  }
+  
+  th {
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: #6b7280;
+    padding: 12px 24px;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+  
+  /* Table Rows */
+  td {
+    padding: 14px 24px;
+    color: #1f2937;
+    vertical-align: middle;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f9fafb;
+  }
+  
+  tbody tr:hover {
+    background-color: #f3f4f6;
+  }
+  
+  /* Button */
+  button {
+    background-color: #3b82f6;
+    color: white;
+    font-weight: 600;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #2563eb;
+  }
+  
+  /* Loading / Error */
+  .text-center {
+    text-align: center;
+    margin: 1.5rem 0;
+  }
+  
+  .text-red-600 {
+    color: #dc2626;
+    font-weight: 500;
+  }
+  

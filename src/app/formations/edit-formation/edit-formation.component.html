@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Modifier Formation</h1>
+    <form (ngSubmit)="handleSubmit()">
+      <div>
+        <label>Nom</label>
+        <input type="text" [(ngModel)]="formation.nom" name="nom" required />
+      </div>
+      <div>
+        <label>Description</label>
+        <textarea [(ngModel)]="formation.description" name="description" required></textarea>
+      </div>
+      <div>
+        <label>Durée (h)</label>
+        <input type="number" [(ngModel)]="formation.duree" name="duree" required />
+      </div>
+  
+      <div *ngIf="formation.imageUrl">
+        <p>Image actuelle :</p>
+        <img [src]="formation.imageUrl" width="150" />
+      </div>
+  
+      <div>
+        <label>Changer Image (optionnel)</label>
+        <input type="file" (change)="handleFileInput($event)" />
+      </div>
+  
+      <button type="submit">Mettre à jour</button>
+      <div *ngIf="error">{{ error }}</div>
+    </form>
+  </div>
+  

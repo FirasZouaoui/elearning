@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="header">
+    <h1>{{ test ? 'Questions pour ' + test.nom : 'Chargement...' }}</h1>
+    <button class="add-btn" (click)="goToAdd()">+ Ajouter une question</button>
+  </div>
+
+  <div *ngIf="error" class="error-msg">{{ error }}</div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Texte</th>
+          <th>Nb Réponses Vraies</th>
+          <th>Note</th>
+          <th>Temps</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let question of questions">
+          <td>{{ question.texte }}</td>
+          <td>{{ question.nbReponseVrai }}</td>
+          <td>{{ question.note }}</td>
+          <td>{{ question.temps }} sec</td>
+          <td class="actions">
+            <button class="btn edit" (click)="goToModify(question.idQuestion)">Modifier</button>
+            <button class="btn delete" (click)="handleDelete(question.idQuestion)">Supprimer</button>
+            <button class="btn view" (click)="goToResponses(question.idQuestion)">Réponses</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

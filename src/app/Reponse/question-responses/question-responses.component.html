@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="header">
+    <h1>Réponses pour la question</h1>
+    <button class="add-btn" (click)="goToAdd()">+ Ajouter une réponse</button>
+  </div>
+
+  <div *ngIf="error" class="error-msg">{{ error }}</div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Texte</th>
+          <th>Correcte</th>
+          <th>Note</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let response of responses">
+          <td>{{ response.texte }}</td>
+          <td>{{ response.estCorrecte ? 'Oui' : 'Non' }}</td>
+          <td>{{ response.note }}</td>
+          <td class="actions">
+            <button class="btn edit" (click)="goToModify(response.idReponse)">Modifier</button>
+            <button class="btn delete" (click)="handleDelete(response.idReponse)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

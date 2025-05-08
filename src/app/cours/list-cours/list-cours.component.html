@@ -1,0 +1,35 @@
+<div class="course-list-container">
+  <div class="header">
+    <h1>Liste des Cours</h1>
+    <button (click)="router.navigate(['/add-cours'])" class="btn-add">
+      + Ajouter un cours
+    </button>
+  </div>
+
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+
+  <div class="table-wrapper">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Titre</th>
+          <th>Formation</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let course of cours">
+          <td>{{ course.titre }}</td>
+          <td>{{ course.formation?.nom }}</td>
+          <td class="actions">
+            <button (click)="router.navigate(['/view-cours', course.idCours])" class="btn btn-view">Voir</button>
+            <button [routerLink]="['/cours/edit', course.idCours]" class="btn btn-edit">Modifier</button>
+            <button (click)="deleteCours(course.idCours)" class="btn btn-delete">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

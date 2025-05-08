@@ -1,0 +1,56 @@
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold mb-6">Ajouter un Cours</h1>
+  
+    <form (ngSubmit)="handleSubmit()" #coursForm="ngForm">
+      <!-- Titre -->
+      <div class="mb-4">
+        <label class="block text-gray-700 mb-2">Titre</label>
+        <input
+          type="text"
+          name="titre"
+          [(ngModel)]="cours.titre"
+          required
+          class="form-input"
+        />
+      </div>
+  
+      <!-- Formation -->
+      <div class="mb-4">
+        <label class="block text-gray-700 mb-2">Formation</label>
+        <select
+          name="idFormation"
+          [(ngModel)]="cours.idFormation"
+          required
+          class="form-select"
+        >
+          <option value="" disabled selected>Choisir une formation</option>
+          <option *ngFor="let formation of formations" [value]="formation.idFormation">
+            {{ formation.nom }}
+          </option>
+        </select>
+      </div>
+  
+      <!-- Lien YouTube -->
+      <div class="mb-4">
+        <label class="block text-gray-700 mb-2">Lien YouTube</label>
+        <input
+          type="url"
+          name="youtubeLink"
+          [(ngModel)]="cours.youtubeLink"
+          required
+          class="form-input"
+          placeholder="https://www.youtube.com/watch?v=..."
+        />
+      </div>
+  
+      <div *ngIf="error" class="text-red-500 mb-4">{{ error }}</div>
+  
+      <button
+        type="submit"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Enregistrer
+      </button>
+    </form>
+  </div>
+  

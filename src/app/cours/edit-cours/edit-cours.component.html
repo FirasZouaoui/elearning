@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Modifier le Cours</h2>
+  
+    <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+  
+    <form (ngSubmit)="updateCours()" *ngIf="cours">
+      <div class="mb-3">
+        <label for="titre" class="form-label">Titre</label>
+        <input type="text" id="titre" [(ngModel)]="cours.titre" name="titre" class="form-control" required />
+      </div>
+  
+      <div class="mb-3">
+        <label for="idFormation" class="form-label">Formation</label>
+        <select [(ngModel)]="cours.idFormation" name="idFormation" class="form-select" required>
+          <option *ngFor="let formation of formations" [value]="formation.idFormation">{{ formation.nom }}</option>
+        </select>
+      </div>
+  
+      <div class="mb-3">
+        <label for="youtubeLink" class="form-label">Lien YouTube</label>
+        <input type="url" id="youtubeLink" [(ngModel)]="cours.youtubeLink" name="youtubeLink" class="form-control" />
+      </div>
+  
+      <button type="submit" class="btn btn-success">Mettre à jour</button>
+      <button type="button" class="btn btn-secondary ms-2" (click)="router.navigate(['/cours'])">
+        Annuler
+      </button>
+    </form>
+  </div>
+  

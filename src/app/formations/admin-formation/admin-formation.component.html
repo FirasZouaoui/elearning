@@ -1,0 +1,39 @@
+<div class="formation-list">
+  <h2>Formations</h2>
+  
+  <button (click)="navigateToAdd()" class="btn btn-primary">Ajouter Formation</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Description</th>
+        <th>Durée (h)</th>
+        <th>Image</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let formation of formations">
+        <td>{{ formation.idFormation }}</td>
+        <td>{{ formation.nom }}</td>
+        <td>{{ formation.description }}</td>
+        <td>{{ formation.duree }}</td>
+        <td>
+          <img *ngIf="formation.imageUrl" [src]="formation.imageUrl" width="100" />
+        </td>
+        <td>
+          <button (click)="editFormation(formation.idFormation)">Edit</button>
+          <button (click)="deleteFormation(formation.idFormation)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <button (click)="previousPage()" [disabled]="pageNumber === 1">Précédent</button>
+    <span>Page {{ pageNumber }} / {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="pageNumber === totalPages">Suivant</button>
+  </div>
+</div>

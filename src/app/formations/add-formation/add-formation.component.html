@@ -1,0 +1,24 @@
+<div class="container">
+    <h1>Ajouter une formation</h1>
+    <form (ngSubmit)="handleSubmit()">
+      <div>
+        <label>Nom</label>
+        <input type="text" [(ngModel)]="formation.nom" name="nom" required />
+      </div>
+      <div>
+        <label>Description</label>
+        <textarea [(ngModel)]="formation.description" name="description" required></textarea>
+      </div>
+      <div>
+        <label>Durée (h)</label>
+        <input type="number" [(ngModel)]="formation.duree" name="duree" required />
+      </div>
+      <div>
+        <label>Image</label>
+        <input type="file" (change)="handleFileInput($event)" />
+      </div>
+      <button type="submit">Ajouter</button>
+      <div *ngIf="error">{{ error }}</div>
+    </form>
+  </div>
+  

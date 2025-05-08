@@ -1,0 +1,21 @@
+<div class="course-details-container" *ngIf="cours">
+  <h2 class="course-title">{{ cours.titre }}</h2>
+
+  <div class="course-card">
+    <h3>Détails du cours</h3>
+    <p><strong>Formation :</strong> {{ cours.formation?.nom }}</p>
+  </div>
+
+  <div *ngIf="cours.youtubeLink" class="video-section">
+    <h4>Vidéo YouTube</h4>
+    <div class="video-wrapper">
+      <iframe
+        [src]="getYouTubeEmbedUrl(cours.youtubeLink) | safeUrl"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<div class="error-box" *ngIf="error">{{ error }}</div>

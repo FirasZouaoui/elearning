@@ -1,0 +1,117 @@
+.formation-list {
+  max-width: 1100px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.formation-list h2 {
+  margin-bottom: 20px;
+  color: #1f2937;
+  font-size: 1.6rem;
+}
+
+.btn-primary {
+  background-color: #3b82f6;
+  color: white;
+  padding: 10px 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+}
+
+/* TABLE STYLES */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+thead th {
+  text-align: left;
+  background-color: #f3f4f6;
+  padding: 12px;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+tbody td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: top;
+}
+
+tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+img {
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* ACTION BUTTONS */
+td button {
+  margin-right: 8px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+td button:first-child {
+  background-color: #10b981;
+  color: white;
+}
+
+td button:first-child:hover {
+  background-color: #059669;
+}
+
+td button:last-child {
+  background-color: #ef4444;
+  color: white;
+}
+
+td button:last-child:hover {
+  background-color: #dc2626;
+}
+
+/* PAGINATION */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #3b82f6;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.pagination button:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  color: #374151;
+}

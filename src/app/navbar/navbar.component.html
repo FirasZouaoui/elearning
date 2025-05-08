@@ -1,0 +1,31 @@
+
+<header class="header">
+  <div class="logo">E-Learning</div>
+
+  <div class="link">
+    <ng-container *ngIf="!auth.isAuth; else loggedIn">
+      <a routerLink="/">Home</a>
+      <a routerLink="/about">About</a>
+      <a routerLink="/login">Login</a>
+    </ng-container>
+
+    <ng-template #loggedIn>
+      <ng-container *ngIf="isAdmin; else userLinks">
+        <a routerLink="/admin/dashboard">Admin Dashboard</a>
+        <a routerLink="/admin/formations">Gérer Formations</a> <!-- ✅ Ajout du lien -->
+        <a routerLink="/admin/Tests">Tests</a>
+        <a routerLink="/admin/cours">Courses</a>
+      </ng-container>
+
+      <ng-template #userLinks>
+       
+        <a routerLink="/ListeFormationPubli">Formations</a>
+        <a routerLink="/MESC">Certificat</a>
+
+        <a routerLink="/about">About</a>
+      </ng-template>
+
+      <button (click)="logout()" class="logout-btn">Logout</button>
+    </ng-template>
+  </div>
+</header>

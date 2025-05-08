@@ -1,0 +1,39 @@
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-6">Edit Test</h1>
+    <div *ngIf="error" class="text-red-500 mb-4">{{ error }}</div>
+    <form (ngSubmit)="handleSubmit()" class="max-w-md">
+      <div class="mb-4">
+        <label for="nom" class="block text-gray-700 font-bold mb-2">Nom du Test</label>
+        <input
+          type="text"
+          id="nom"
+          [(ngModel)]="test.nom"
+          name="nom"
+          class="w-full px-3 py-2 border rounded-lg"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label for="formationId" class="block text-gray-700 font-bold mb-2">Formation</label>
+        <select
+          id="formationId"
+          [(ngModel)]="test.formationId"
+          name="formationId"
+          class="w-full px-3 py-2 border rounded-lg"
+          required
+        >
+          <option value="">Sélectionner une formation</option>
+          <option *ngFor="let formation of formations" [value]="formation.idFormation">
+            {{ formation.nom }}
+          </option>
+        </select>
+      </div>
+      <button
+        type="submit"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Mettre à jour le test
+      </button>
+    </form>
+  </div>
+  

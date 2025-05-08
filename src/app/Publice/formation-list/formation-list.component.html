@@ -1,0 +1,41 @@
+<div class="formation-display">
+  <h2>Explorez nos Formations</h2>
+
+  <!-- Message d'erreur -->
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+
+  <!-- Liste des formations -->
+  <div class="formation-display-list">
+    <ng-container *ngIf="formations.length > 0; else noResult">
+      <div *ngFor="let formation of formations" class="formation-item">
+        <div class="formation-card" (click)="goToFormation(formation.idFormation)">
+          <img
+            [src]="formation.imageUrl || 'https://via.placeholder.com/150'"
+            [alt]="formation.nom"
+            class="formation-image"
+          />
+          <div class="formation-info">
+            <h3>{{ formation.nom }}</h3>
+            <p>{{ formation.description }}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #noResult>
+      <div class="no-result">Aucune formation disponible.</div>
+    </ng-template>
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination-controls">
+    <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">
+      Précédent
+    </button>
+    <span>Page {{ currentPage }} sur {{ totalPages }}</span>
+    <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">
+      Suivant
+    </button>
+  </div>
+</div>

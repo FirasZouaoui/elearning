@@ -1,0 +1,54 @@
+<div class="container py-4">
+    <h2 class="text-2xl font-bold mb-4">Mes Certificats</h2>
+  
+    <!-- Loading -->
+    <div *ngIf="loading" class="text-center">
+      Chargement des certificats...
+    </div>
+  
+    <!-- Error -->
+    <div *ngIf="error" class="text-center text-red-600">
+      {{ error }}
+    </div>
+  
+    <!-- Certificate List -->
+    <div *ngIf="!loading && !error" class="bg-white shadow-md rounded-lg overflow-hidden">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Test
+            </th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Formation
+            </th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Action
+            </th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <tr *ngFor="let cert of certificates">
+            
+            <td class="px-6 py-4 whitespace-nowrap">{{ cert.testName }}</td>
+            <td class="px-6 py-4 whitespace-nowrap">{{ cert.formationName }}</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <button
+                (click)="downloadCertificate(cert)"
+                class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+              >
+                Télécharger
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="certificates.length === 0">
+            <td colspan="4" class="px-6 py-4 text-center text-gray-500">
+              Aucun certificat disponible.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

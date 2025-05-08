@@ -1,0 +1,99 @@
+/* ================== GLOBAL DASHBOARD =================== */
+
+.dashboard {
+    padding: 40px 20px;
+    background: #f9fafb;
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    min-height: 100vh;
+  }
+  
+  .dashboard h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #111827;
+    font-weight: 700;
+    position: relative;
+  }
+  
+  .dashboard h2::after {
+    content: "";
+    display: block;
+    height: 4px;
+    width: 60px;
+    background-color: #6366f1;
+    margin: 8px auto 0;
+    border-radius: 9999px;
+  }
+  
+  /* ================== CHART GRID =================== */
+  
+  .charts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+  }
+  
+  /* ================== CHART BOX =================== */
+  
+  .chart-container {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .chart-container:hover {
+    transform: translateY(-5px);
+  }
+  
+  .chart-container h3 {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #374151;
+  }
+  
+  /* ================== CANVAS =================== */
+  
+  canvas {
+    width: 100% !important;
+    max-height: 360px;
+    height: auto !important;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* ================== RESPONSIVE =================== */
+  
+  @media (max-width: 768px) {
+    .dashboard {
+      padding: 20px 10px;
+    }
+  
+    .dashboard h2 {
+      font-size: 1.8rem;
+    }
+  
+    .chart-container {
+      padding: 20px;
+    }
+  }
+  
+  /* ================== COLORS (OPTIONAL) =================== */
+  
+  .course-chart-style {
+    background: linear-gradient(to right, #c7d2fe, #dbeafe);
+  }
+  
+  .test-chart-style {
+    background: linear-gradient(to right, #fcd34d, #fef3c7);
+  }
+  
+  .user-chart-style {
+    background: linear-gradient(to right, #fca5a5, #fecaca);
+  }
+  

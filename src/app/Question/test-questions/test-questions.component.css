@@ -1,0 +1,140 @@
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #1f2937;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #111827;
+  }
+  
+  .add-btn {
+    background-color: #2563eb;
+    color: white;
+    padding: 10px 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  .add-btn:hover {
+    background-color: #1e40af;
+    transform: translateY(-1px);
+  }
+  
+  .error-msg {
+    color: #dc2626;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+  
+  .table-wrapper {
+    overflow-x: auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px #e5e7eb, 0 4px 6px rgba(0, 0, 0, 0.03);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+  }
+  
+  thead {
+    background-color: #f9fafb;
+    color: #6b7280;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+  }
+  
+  th, td {
+    padding: 16px 20px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+  }
+  
+  td {
+    font-size: 0.95rem;
+    color: #374151;
+  }
+  
+  /* Actions aligned horizontally */
+  td.actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+  }
+  
+  /* Button styles */
+  .btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s;
+    min-width: 90px;
+    text-align: center;
+  }
+  
+  .btn.edit {
+    background-color: #facc15;
+    color: #1c1917;
+  }
+  .btn.edit:hover {
+    background-color: #eab308;
+  }
+  
+  .btn.delete {
+    background-color: #ef4444;
+  }
+  .btn.delete:hover {
+    background-color: #dc2626;
+  }
+  
+  .btn.view {
+    background-color: #10b981;
+  }
+  .btn.view:hover {
+    background-color: #059669;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  
+    .table-wrapper {
+      border-radius: 0;
+    }
+  
+    td.actions {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .btn {
+      width: 100%;
+    }
+  }
+  
